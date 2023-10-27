@@ -1,0 +1,115 @@
+{% extends 'admin_template.html' %}
+{% load static %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/add_events.css' %}" />
+
+  <div class="container">
+    <h1>Create Event</h1>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="input-group">
+        <label class="label" for="title">Event Title:</label>
+        <input type="text" name="title" id="title" required>
+      </div>
+
+      <div class="input-group">
+        <label class="label" for="description">Description:</label>
+        <textarea name="description" id="description" rows="4" required></textarea>
+      </div>
+
+      <div class="input-group">
+        <label class="label" for="event_date">Event Date:</label>
+        <input type="date" name="event_date" id="event_date" required>
+      </div>
+
+      <div class="input-group">
+        <label class="label" for="event_time">Event Time:</label>
+        <input type="time" name="event_time" id="event_time" required>
+      </div>
+
+      <div class="input-group">
+        <label class="label" for="location">Location:</label>
+        <input type="text" name="location" id="location" required>
+      </div>
+
+      <div class="input-group">
+        <label class="label" for="organizer">Organizer:</label>
+        <select name="organizer" id="organizer" required>
+          <option value="" selected>---------</option>
+          {% for staff_user in staff_users %}
+            <option value="{{ staff_user.id }}">{{ staff_user.username }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label class="label" for="id_event_image">Event Image:</label>
+        <div id="file-drop-area">
+          <input type="file" name="event_image" id="file-input" class="file-upload" required>
+          <label for="file-input" class="file-upload-label">Drag & Drop or Click to Upload</label>
+          <span class="selected-file" id="selected-file">No file selected.</span>
+        </div>
+      </div>
+      
+
+      <div class="input-group">
+        <label class="label" for="registration_deadline">Registration Deadline:</label>
+        <input type="date" name="registration_deadline" id="registration_deadline">
+      </div>
+
+      <div class="input-group">
+        <label class="label" for="max_participants">Max Participants:</label>
+        <input type="number" name="max_participants" id="max_participants">
+      </div>
+
+      <div class="input-group">
+        <label class="label" for="event_type">Event Type:</label>
+        <input type="text" name="event_type" id="event_type" required>
+      </div>
+
+      <div class="input-group">
+        <label class="label" for="tags">Tags:</label>
+        <input type="text" name="tags" id="tags">
+      </div>
+
+      <div class="input-group">
+        <label class="label" for="is_active">Is Active:</label>
+        <input type="checkbox" name="is_active" id="is_active" checked>
+      </div>
+
+      <div class="input-group">
+        <label class="label" for="additional_information">Additional Information:</label>
+        <textarea name="additional_information" id="additional_information" rows="4"></textarea>
+      </div>
+
+      <button type="submit">Create Event</button>
+    </form>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById('file-input');
+    const selectedFile = document.getElementById('selected-file');
+    const fileDropArea = document.getElementById('file-drop-area');
+
+    fileInput.addEventListener('change', () => {
+      selectedFile.textContent = fileInput.files[0] ? fileInput.files[0].name : 'No file selected.';
+    });
+
+    fileDropArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      fileDropArea.classList.add('drag-over');
+    });
+
+    fileDropArea.addEventListener('dragleave', () => {
+      fileDropArea.classList.remove('drag-over');
+    });
+
+    fileDropArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      fileDropArea.classList.remove('drag-over');
+      fileInput.files = e.dataTransfer.files;
+      selectedFile.textContent = fileInput.files[0] ? fileInput.files[0].name : 'No file selected.';
+    });
+  </script>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Raleway:wght@200&family=Roboto:wght@100&display=swap" rel="stylesheet">
+</head>
+<!-- Link to your CSS file -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/1.css' %}">
+
+<body>
+    <div class="logo_header">
+        <h1 id="header">campusFLOW</h1>
+    </div>
+    
+    <ul class="nav-menu">
+      <h1>admin</h1>
+        <li class="btn">
+            <a href="{% url 'update_profile'%}">update_profile</a>
+        </li>
+        <li>
+            <a href="{% url 'manage_course'%}">manage_course</a>
+        </li>
+        <li class="btn">
+            <a href="{% url 'manage_student'%}">manage_student</a>
+        </li>
+        <li class="btn">
+            <a href="{% url 'manage_staff'%}">manage_staff</a>
+        </li>
+        <li class="btn">
+            <a href="{% url 'manage_subject'%}">manage_subject</a>
+        </li>
+        <li class="btn">
+            <a href="{% url 'manage_class'%}">manage_class</a>
+        </li>
+        <li class="btn">
+            <a href="{%url 'manage_events'%}">manage_events</a>
+        </li>
+        <li class="btn">
+            <a href="{%url 'admin_dashboard'%}">home</a>
+        </li>
+        <li class="btn" id="logout">
+        <a href="{%url 'logout'%}">logout</a>
+    </li>
+    </ul>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

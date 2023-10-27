@@ -1,0 +1,43 @@
+{% extends 'admin_template.html' %}
+{%load static%}
+{% load widget_tweaks%}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/student_form.css' %}">
+  <div class="form-container">
+    <h1>Edit Student</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label for="{{ form.username.id_for_label }}">Username</label>
+      {{ form.username }}
+      <label for="{{ form.email.id_for_label }}">Email</label>
+      {{ form.email }}
+      <label for="{{ form.first_name.id_for_label }}">First Name</label>
+      {{ form.first_name }}
+      <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+      {{ form.last_name }}
+      <label for="{{ form.address.id_for_label }}">Address</label>
+      {{ form.address }}
+      <label for="{{ form.phone_number.id_for_label }}">Phone Number</label>
+      {{ form.phone_number }}
+      <label for="{{ form.date_of_birth.id_for_label }}">Date of Birth</label>
+      {% render_field form.date_of_birth class="flatpickr" data-enable-time="false" %}
+      
+      {{ form.enrollment_date.label_tag }}
+      {{ form.enrollment_date }}
+      <label for="{{ form.batch.id_for_label }}">Batch</label>
+      {{ form.batch }}
+      <input type="submit" value="Save">
+    </form>
+  </div>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+  <script>
+    // Initialize flatpickr for the date fields
+    flatpickr(".flatpickr", {
+      // Customize options here
+      dateFormat: "Y-m-d",
+    });
+    </script>
+{% endblock %}
+

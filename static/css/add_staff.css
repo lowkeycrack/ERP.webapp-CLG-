@@ -1,0 +1,70 @@
+/* Reset some default styles to ensure consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply styles to the form container */
+.form-container {
+    width: 30%; /* Adjust the width as needed */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* White background */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: left; /* Align the form content to the left */
+}
+
+/* Apply styles to form elements */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #000000; /* Dark gray text color */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 3px;
+    background-color: #fff; /* White background */
+    color: #333; /* Dark gray text color */
+}
+
+/* Style the login button */
+.btn-primary {
+    background-color: #007bff; /* Blue button color */
+    color: #fff; /* White text color */
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Style the helptext */
+.helptext {
+    font-size: 12px;
+    color: #000000; /* Light gray text color */
+}
+#heading{
+    padding: 50px 20px;
+    text-align: center;
+}

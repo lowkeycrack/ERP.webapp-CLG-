@@ -1,0 +1,75 @@
+{% extends 'admin_template.html' %}
+
+{%load static%}
+{% load widget_tweaks %}
+{% block content %}
+<link rel="stylesheet" href="{%static 'css/add_student.css'%}">
+
+  <div class="form-container">
+    <h1>Add Student</h1>
+    <form method="post">
+      {% csrf_token %}
+      
+      <label for="{{ form.username.id_for_label }}">Username</label>
+      {{ form.username }}
+      <br><br>
+      
+      <label for="{{ form.password1.id_for_label }}">Password</label>
+      {{ form.password1 }}
+      <br><br>
+      
+      <label for="{{ form.password2.id_for_label }}">Password Confirmation</label>
+      {{ form.password2 }}
+      <span class="helptext">Enter the same password as before, for verification.</span>
+      <br><br>
+      
+      {{ form.first_name.label_tag }}
+      {{ form.first_name }}
+      <br><br>
+      
+      {{ form.last_name.label_tag }}
+      {{ form.last_name }}
+      <br><br>
+      
+      {{ form.email.label_tag }}
+      {{ form.email }}
+      <br><br>
+      
+      {{ form.address.label_tag }}
+      {{ form.address }}
+      <br><br>
+      
+      {{ form.phone_number.label_tag }}
+      {{ form.phone_number }}
+      <br><br>
+      
+      <!-- Render the date_of_birth field with flatpickr -->
+      <label for="{{ form.date_of_birth.id_for_label }}">Date of Birth</label>
+      {% render_field form.date_of_birth class="flatpickr" data-enable-time="false" %}
+      <br><br>
+      
+      <!-- Render the enrollment_date field with flatpickr -->
+      <label for="{{ form.enrollment_date.id_for_label }}">Enrollment Date</label>
+      {% render_field form.enrollment_date class="flatpickr" data-enable-time="false" %}
+      <br><br>
+      
+      {{ form.batch.label_tag }}
+      {{ form.batch }}
+      <br><br>
+      
+      <input type="submit" value="Save">
+    </form>
+  </div>
+
+  <!-- Include the flatpickr library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+  <script>
+    // Initialize flatpickr for the date fields
+    flatpickr(".flatpickr", {
+      // Customize options here
+      dateFormat: "Y-m-d",
+    });
+  </script>
+{% endblock %}

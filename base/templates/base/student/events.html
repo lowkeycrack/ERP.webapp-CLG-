@@ -1,0 +1,15 @@
+{% extends 'student_template.html' %}
+{%load static%}
+{% block content %}
+<link rel="stylesheet" href="{%static 'css/events.css'%}">
+  <div class="event-grid">
+    <h1>All Events</h1>
+  
+      {% for event in events %}
+        <div class="all-events">
+          {% include 'base/student/event_poster.html' %}
+        </div>
+      {% endfor %}
+
+ 
+{% endblock %}

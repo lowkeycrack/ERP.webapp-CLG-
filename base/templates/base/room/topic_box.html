@@ -1,0 +1,8 @@
+<!-- topics_box.html -->
+<div class="topics-box">
+  <h3>TOPICS</h3>
+  <a href="{% url 'room_home' %}?q={{topic.name}}">all</a><br>
+  {% for topic in topics %}
+      <a href="{% url 'room_home' %}?q={{ topic.name }}">{{ topic.name }}</a><br>
+  {% endfor %}
+</div>

@@ -1,0 +1,82 @@
+.container {
+  display: grid;
+  grid-template-columns:1fr 3fr 2fr;
+  gap: 20px;
+  background-color: #f5f5f5; /* Light grey background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Subtle box shadow */
+
+  /* Animation */
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.container:hover {
+  background-color: #e0e0e0; /* Slightly darker grey on hover */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+}
+
+/* room_home.css */
+.room_box {
+  max-height: 600px; /* Set the maximum height you desire */
+  overflow-y: auto; /* Add vertical scroll when content overflows */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+/* room_home.css */
+/* room_home.css */
+.create-room-button {
+  display: flex;
+  justify-content: flex-end; /* Align the button to the top right of the container */
+  margin-bottom: 20px;
+}
+
+.create-room-link {
+  background-color: #00d400; /* Light green background color */
+  color: #fff;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.create-room-link:hover {
+  background-color: #00a72a; /* Darker green on hover */
+}
+/* room_home.css */
+/* Add some styling to the form */
+/* room_home.css */
+/* Add some styling to the form */
+.search-form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+/* Style the input box with a fixed width */
+.search-input {
+  width: 200px; /* Set the width to your desired value */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Style the search button */
+.search-button {
+  background-color: #007bff; /* Blue background color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.search-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

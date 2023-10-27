@@ -1,0 +1,42 @@
+
+{% extends 'admin_template.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/add_class.css' %}">
+
+<div class="form-container">
+    <h2 id="headert">Create Class</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="{{ form.year.id_for_label }}">Year:</label>
+            {{ form.year }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.section.id_for_label }}">Section:</label>
+            {{ form.section }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.course.id_for_label }}">Course:</label>
+            {{ form.course }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.branch.id_for_label }}">Branch:</label>
+            {{ form.branch }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.proctor.id_for_label }}">Proctor:</label>
+            {{ form.proctor }}
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Save</button>
+    </form>
+</div>
+{% endblock %}
+

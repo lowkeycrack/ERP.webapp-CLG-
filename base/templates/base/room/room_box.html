@@ -1,0 +1,27 @@
+<!-- room_box.html -->
+<div class="room-box">
+
+  <h5>{{ room_count }} rooms are available</h5>
+  {% for room in rooms %}
+    <div class="room">
+      <div class="room-details">
+        <span class="host">@{{ room.host.username }}</span><br>
+        <a href="{% url 'room' room.id %}" class="room-link">
+          <h1 class="room-title">{{ room.id }} - {{ room.name }}</h1>
+        </a>
+        <p class="description">
+          {{ room.description|truncatewords:100 }}
+          {% if room.description|wordcount > 100 %}
+          <a href="{% url 'room' room.id %}">(Read more)</a>
+          {% endif %}
+        </p>
+        <span class="topic-name">{{ room.topic.name }}</span>
+      </div>
+      {%if user.is_staff%}
+      <div class="room-actions">
+        <a href="{% url 'update_room' room.id %}" class="update-button">Update</a>
+      </div>
+      {%endif%}
+    </div>
+  {% endfor %}
+</div>

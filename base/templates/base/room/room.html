@@ -1,0 +1,45 @@
+{% extends 'staff_template.html' %}
+{% load static %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <a href="/logout">Logout</a>
+    <a href="/create_room">Create Room</a>
+    <p>{{ request.user }}</p>
+    <p>{{ user.name }}</p>
+  {% else %}
+    <a href="/login">Login</a>
+  {% endif %}
+
+  <link rel="stylesheet" href="{% static 'css/room.css' %}">
+  
+  <div class="room-container">
+    <h1>{{ room.id }} - {{ room.name }}</h1>
+    <div class="room-content">
+<!-- Room template -->
+<div class="chatbox">
+    {% include 'base/room/activity.html' %}
+    {% if user.is_authenticated %}
+    <form method="post" action="">
+      {% csrf_token %}
+      <div class="message-input">
+        <input type="text" name="body" placeholder="Type your message here...">
+      </div>
+    </form>
+    {% endif %}
+  </div>
+  
+      <div class="participants-box">
+        <h1 class="participants-title">Participants</h1>
+        {% for user in users %}
+        <div class="participant">
+          <span class="username">@{{ user.username }}</span><br>
+          <!-- Add participant details here -->
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+  
+{% endblock %}

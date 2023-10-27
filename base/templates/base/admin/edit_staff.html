@@ -1,0 +1,26 @@
+{% extends 'admin_template.html' %}
+{%load static%}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/staff_form.css' %}">
+  <div class="form-container">
+    <h1>Edit staff</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label for="{{ form.phone_number.id_for_label }}">Phone Number</label>
+      {{ form.phone_number }}
+      <label for="{{ form.staff_id_for_label }}">staff id</label>
+      {{ form.staff_id }}
+      <label for="{{ form.position.id_for_label }}">Position</label>
+      {{ form.position }}
+      <label for="{{ form.username.id_for_label }}">Username</label>
+      {{ form.username }}
+      <label for="{{ form.email.id_for_label }}">Email</label>
+      {{ form.email }}
+      <label for="{{ form.first_name.id_for_label }}">First Name</label>
+      {{ form.first_name }}
+      <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+      {{ form.last_name }}
+      <input type="submit" value="Save">
+    </form>
+  </div>
+{% endblock %}

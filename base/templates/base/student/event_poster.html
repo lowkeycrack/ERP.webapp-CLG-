@@ -1,0 +1,39 @@
+
+{% load static %}
+<link rel="stylesheet" href="{%static 'css/event_poster.css'%}">
+<div class="event-card">
+  <a href="{{event.event_image.url}}">
+  <div class="event-image">
+    <img id = "image" src="{{ event.event_image.url }}" alt="{{ event.title }}">
+  </div>
+</a>
+  <div class="event-details">
+    <p class="event-info">
+      <div class="event-details">
+        <h2>{{ event.title }}</h2>
+        <div class="scrollable-description">
+          <p class="event-description">{{ event.description }}</p>
+        </div>
+        
+        <p class="event-info">
+          <strong>Date:</strong> {{ event.event_date|date:"F d, Y" }}<br>
+          <strong>Time:</strong> {{ event.event_time|time:"g:i A" }}<br>
+          <strong>Location:</strong> {{ event.location }}<br>
+          <strong>Organizer:</strong> {{ event.organizer.username }}<br>
+          <strong>Type:</strong> {{ event.event_type }}<br>
+          {% if event.registration_deadline %}
+          <strong>Registration Deadline:</strong> {{ event.registration_deadline|date:"F d, Y" }}<br>
+          {% endif %}
+          {% if event.max_participants %}
+          <strong>Max Participants:</strong> {{ event.max_participants }}<br>
+          {% endif %}
+          {% if event.tags %}
+          <strong>Tags:</strong> {{ event.tags }}<br>
+          {% endif %}
+          <div class="scrollable-additional-info">
+            <p class="additional-info">{{ event.additional_information }}</p>
+          </div>
+    </p>
+
+  </div>
+</div>

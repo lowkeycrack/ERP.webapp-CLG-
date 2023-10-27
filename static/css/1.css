@@ -1,0 +1,52 @@
+body{
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+}
+.logo_header{
+    background-color: rgb(233, 233, 233);
+    height: 150px;
+    width: 100%;
+    position: relative;
+    margin: 0px 0px;
+}
+#header{
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 50px;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto', sans-serif;}
+ul.nav-menu {
+    list-style: none;
+    padding: 20px 0px;
+    display: flex;
+    overflow: scroll;
+}
+
+ul.nav-menu li {
+    margin-right: 20px;
+}
+
+ul.nav-menu li:last-child {
+    margin-right: 0;
+}
+
+ul.nav-menu li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    padding: 3px 8px; /* Add padding to create a box around the items */
+    background-color: white; /* Initial background color */
+    border: 2px solid rgb(0, 0, 0); /* Add a border around the items */
+    border-radius: 2px;
+    transition: background-color 1s, color 1s; /* Transition effect for hover */
+}
+
+ul.nav-menu li a:hover {
+    background-color: rgb(78, 78, 78); /* Hover background color */
+    color: white; /* Hover text color */
+}

@@ -1,0 +1,61 @@
+/* room.css */
+.room-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.room-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.room-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.chatbox {
+  flex: 3;
+  background-color: #ffffff; /* White background for chatbox */
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.chatbox form {
+  margin-top: 10px;
+}
+
+.chatbox input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.participants-box {
+  flex: 1;
+  background-color: #ffffff; /* White background for participants box */
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.participants-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.participant {
+  font-size: 16px;
+  margin-bottom: 5px;
+}

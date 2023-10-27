@@ -1,0 +1,15 @@
+<!-- activity.html -->
+<div class="activity-box">
+    <h5>Recent Activity</h5>
+    {% for chat in chats %}
+    <div class="activity">
+      <div class="activity-details">
+        <span class="user">{{ chat.user }}</span>
+        <span class="time">{{ chat.updated|timesince }} ago</span>
+      </div>
+      <p class="activity-body">{{ chat.body }}</p>
+      <hr class="activity-divider">
+    </div>
+    {% endfor %}
+  </div>
+  

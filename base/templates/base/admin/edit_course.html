@@ -1,0 +1,16 @@
+{%extends 'admin_template.html'%}
+{%load static%}
+{%block content%}
+{% csrf_token %}
+<h1>edit course</h1>
+<form action="" method="post">
+    <link rel="stylesheet" href="{%static 'css/2.css'%}">
+    <input type="hidden" name="csrfmiddlewaretoken" value="8uqqtkfsBVAm08dufbJXTjYshgp1eHmiI0wtU512ZXma1ZoaOzDUBrrNGyIDhnvP">
+    <p><label for="id_name">Name:</label> <input type="text" name="name" value="Diplom" maxlength="50" required id="id_name"></p>
+    <p><label for="id_HOD">HOD:</label>
+        {{form.HOD}}
+    </p>
+    </p>
+    <input type="submit" value="save">
+</form>
+{%endblock%}

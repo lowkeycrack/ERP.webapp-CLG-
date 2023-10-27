@@ -1,0 +1,6 @@
+{%include 'admin_template.html'%}
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+<button type="submit" value="save"></button>
+</form>

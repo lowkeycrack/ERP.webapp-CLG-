@@ -1,0 +1,27 @@
+{% extends 'student_template.html' %}
+{% load static %} 
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/room_home.css' %}" />
+<link rel="stylesheet" href="{% static 'css/topic_box.css' %}" />
+<link rel="stylesheet" href="{% static 'css/room_box.css' %}" />
+<link rel="stylesheet" href="{% static 'css/activity.css' %}" />
+
+<p>{{ request.user }}</p>
+<p>{{ user.name }}</p>
+
+<form method="get" class="search-form">
+  <input type="text" name="q" class="search-input" placeholder="Search Rooms..." />
+  <button type="submit" class="search-button">Search</button>
+</form>
+<div class="container">
+  <div>{% include 'base/room/topic_box.html' %}</div>
+
+  <div class="room_box">
+    {% if user.is_faculty %}
+    <a href="/create_room" class="create-room-link">Create Room</a>
+    {% endif %}
+    {% include 'base/room/room_box.html' %}
+  </div>
+  <div>{% include 'base/room/activity.html' %}</div>
+</div>
+{% endblock %}
